@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		08420C8A2260481C00A14FC8 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08420C892260481C00A14FC8 /* Department.swift */; };
 		08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDEB76225F871E00F84DB0 /* AppDelegate.swift */; };
 		08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDEB78225F871E00F84DB0 /* ViewController.swift */; };
 		08BDEB7C225F871E00F84DB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB7A225F871E00F84DB0 /* Main.storyboard */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		08420C892260481C00A14FC8 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		08BDEB73225F871E00F84DB0 /* URate-The Rating App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URate-The Rating App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BDEB76225F871E00F84DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		08BDEB78225F871E00F84DB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,6 +47,7 @@
 		08714B6E225F89CD00C88570 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				08420C892260481C00A14FC8 /* Department.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -244,6 +247,7 @@
 			files = (
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
+				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

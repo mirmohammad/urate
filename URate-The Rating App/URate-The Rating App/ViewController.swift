@@ -1,20 +1,20 @@
-//
-//  ViewController.swift
-//  URate-The Rating App
-//
-//  Created by Sahil Gogna on 2019-04-11.
-//  Copyright © 2019 Sahil Gogna. All rights reserved.
-//
-
 import UIKit
+import Firebase
 
 class ViewController: UIViewController {
+    
+    //Firebase refrence variable
+    var ref: DatabaseReference?
+    
+    //database handler
+    var databaseHandle: DatabaseHandle?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        //set the firebase refrence
+        ref = Database.database().reference()
+        
     }
-
-
 }
 
