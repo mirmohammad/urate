@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>235638886705-cnd1ckhkfijn7kb1d7ba33vrh0b6q4nl.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.235638886705-cnd1ckhkfijn7kb1d7ba33vrh0b6q4nl</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCOF3SsrvQdzTU6_SgkfKirjPUPgvV2f4U</string>
+	<key>GCM_SENDER_ID</key>
+	<string>235638886705</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.sahilgogna.URate-The-Rating-App</string>
+	<key>PROJECT_ID</key>
+	<string>urate-871e4</string>
+	<key>STORAGE_BUCKET</key>
+	<string>urate-871e4.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:235638886705:ios:0e01143408f2858d</string>
+	<key>DATABASE_URL</key>
+	<string>https://urate-871e4.firebaseio.com</string>
+</dict>
+</plist>
