@@ -14,6 +14,7 @@
 		08BDEB7E225F872200F84DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB7D225F872200F84DB0 /* Assets.xcassets */; };
 		08BDEB81225F872200F84DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB7F225F872200F84DB0 /* LaunchScreen.storyboard */; };
 		08BDEB89225F878E00F84DB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB88225F878D00F84DB0 /* GoogleService-Info.plist */; };
+		2ED2AC6F2260FC6900B8B1D9 /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2ED2AC6E2260FC6900B8B1D9 /* EditUserProfileViewController.swift */; };
 		BB391B6A0D6D2800F1A53BF6 /* Pods_URate_The_Rating_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,6 +29,7 @@
 		08BDEB82225F872200F84DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08BDEB88225F878D00F84DB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		20C4782F08AD9A1E7D93B09D /* Pods-URate-The Rating App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.release.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.release.xcconfig"; sourceTree = "<group>"; };
+		2ED2AC6E2260FC6900B8B1D9 /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = EditUserProfileViewController.swift; path = "URate-The Rating App/EditUserProfileViewController.swift"; sourceTree = SOURCE_ROOT; };
 		90E09130FF12AF8BABBB4D91 /* Pods-URate-The Rating App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.debug.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.debug.xcconfig"; sourceTree = "<group>"; };
 		DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URate_The_Rating_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -55,6 +57,7 @@
 		08714B6F225F89D700C88570 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2ED2AC6E2260FC6900B8B1D9 /* EditUserProfileViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -248,6 +251,7 @@
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
 				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
+				2ED2AC6F2260FC6900B8B1D9 /* EditUserProfileViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
