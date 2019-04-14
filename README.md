@@ -10,6 +10,9 @@ The basic application that allows user to rate the various services of LaSalle c
 
 > Happy Coding
 
+###### UI Rules 
+Th font is: System Bold 18.0
+and the colors are: black and 052D6F and 1295FB
 
 
 ###### Basic code for reading the data
