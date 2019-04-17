@@ -10,10 +10,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="URate_The_Rating_App" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="URate_The_Rating_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -67,6 +67,9 @@
                                 <state key="normal" title="Log In">
                                     <color key="titleColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1z-ZF-ZeX"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="ACE-5P-nJa">
                                 <rect key="frame" x="0.0" y="539" width="414" height="25"/>
@@ -124,15 +127,20 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="8qQ-0m-LmA"/>
+                    <connections>
+                        <outlet property="email" destination="bz5-HK-QnS" id="Cuh-LZ-jZe"/>
+                        <outlet property="password" destination="gJm-Rn-Q4M" id="5FI-sv-hFG"/>
+                        <segue destination="Q54-Mx-glQ" kind="show" identifier="loginLanding" id="5Mg-hH-boM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="170" y="118"/>
         </scene>
-        <!--View Controller-->
+        <!--Sign Up View Controller-->
         <scene sceneID="fuw-Ml-cTa">
             <objects>
-                <viewController id="dZ7-cO-j6N" sceneMemberID="viewController">
+                <viewController id="dZ7-cO-j6N" customClass="SignUpViewController" customModule="URate_The_Rating_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Li-t2-PHa">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -226,6 +234,9 @@
                                 <state key="normal" title="DONE">
                                     <color key="titleColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
+                                <connections>
+                                    <action selector="signUp:" destination="dZ7-cO-j6N" eventType="touchUpInside" id="mHq-XE-YPJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -243,10 +254,46 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7Yl-pL-xSz"/>
                     </view>
+                    <connections>
+                        <outlet property="email" destination="L15-Sv-Kto" id="Gix-1j-5tB"/>
+                        <outlet property="firstName" destination="cGd-3h-V0x" id="fmV-kE-nRB"/>
+                        <outlet property="lastName" destination="tN2-C0-xzy" id="6d0-0z-l0B"/>
+                        <outlet property="password" destination="Plg-ww-D7S" id="1PD-mq-5PQ"/>
+                        <segue destination="Q54-Mx-glQ" kind="show" identifier="landingView" id="Ext-qk-MYI"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuh-vJ-pHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="945" y="118"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="nNr-VW-Grp">
+            <objects>
+                <viewController id="Q54-Mx-glQ" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7AY-J1-ciV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2lH-5j-9RK">
+                                <rect key="frame" x="20" y="388" width="374" height="174"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="70"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="2lH-5j-9RK" firstAttribute="top" secondItem="41v-8l-dit" secondAttribute="top" constant="300" id="OBw-OM-76Y"/>
+                            <constraint firstItem="41v-8l-dit" firstAttribute="trailing" secondItem="2lH-5j-9RK" secondAttribute="trailing" constant="20" id="OO8-7w-x7y"/>
+                            <constraint firstItem="41v-8l-dit" firstAttribute="bottom" secondItem="2lH-5j-9RK" secondAttribute="bottom" constant="300" id="UV8-rA-VEA"/>
+                            <constraint firstItem="2lH-5j-9RK" firstAttribute="leading" secondItem="41v-8l-dit" secondAttribute="leading" constant="20" id="sTd-x1-9Hq"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="41v-8l-dit"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ISp-sN-Vfz" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1654" y="117"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="bb1-nf-Knf">
@@ -271,4 +318,7 @@
         <image name="line" width="688" height="61"/>
         <image name="logo" width="256" height="256"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="5Mg-hH-boM"/>
+    </inferredMetricsTieBreakers>
 </document>
