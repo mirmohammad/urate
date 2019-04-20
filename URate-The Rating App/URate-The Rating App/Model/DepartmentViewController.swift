@@ -9,19 +9,20 @@
 import UIKit
 import Firebase
 
-class DepartmentViewController: UIViewController {
+class DepartmentViewController: UITableViewController{
     
     let getDepartmentID = "Department1"
-
-    @IBOutlet weak var departmentNameLabel: UILabel!
-    
-    @IBOutlet weak var locationLabel: UILabel!
     
     //Firebase refrence variable
     var ref: DatabaseReference?
     
     //database handler
     var databaseHandle: DatabaseHandle?
+    
+    @IBOutlet weak var departmentLabel: UILabel!
+    @IBOutlet weak var locationLabel: UILabel!
+    @IBOutlet weak var phoneLabel: UILabel!
+    @IBOutlet weak var descLabel: UILabel!
     
     
     override func viewDidLoad() {
@@ -34,13 +35,20 @@ class DepartmentViewController: UIViewController {
             
             //Get deparments values
             
-            let values = snapshot.value as? NSDictionary
-            let name = values?["name"] as! String
-            let location = values?["location"] as! String
-            
-            self.departmentNameLabel.text = name
-            self.locationLabel.text = location
-            
+            if let values = snapshot.value as? NSDictionary {
+                
+                let name = values["name"] as! String
+                let location = values["location"] as! String
+                let phone = values["phone_number"] as! String
+                let desc = values["long_desc"] as! String
+                
+                self.departmentLabel.text = name
+                self.locationLabel.text = location
+                self.phoneLabel.text = phone
+                self.descLabel.text = desc
+                
+                
+            }
             
         })
 
