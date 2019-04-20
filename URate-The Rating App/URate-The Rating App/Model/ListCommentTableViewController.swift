@@ -31,6 +31,8 @@ class ListCommentTableViewController: UITableViewController {
         ref = Database.database().reference()
         
         fetchComments()
+        
+        getUsersName()
 
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -39,11 +41,15 @@ class ListCommentTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    func getUsersName(){
+        
+        
+        
+    }
+    
     func fetchComments(){
         
         ref!.child("Rate").observeSingleEvent(of: .value, with: { (snapshot) in
-            
-            print(snapshot)
             
             if let dictionary = snapshot.value as? [String:[String: Any]] {
                 for (_,rate) in dictionary{
@@ -62,6 +68,28 @@ class ListCommentTableViewController: UITableViewController {
                     }
                 }
                 
+//                DispatchQueue.main.async {
+//                    for rate in self.depRate {
+//                        self.ref!.child("users").child(rate.user_id!).observeSingleEvent(of: .value, with: { (snapshot) in
+//                            print(snapshot)
+//
+//                            if let dictionary = snapshot.value as? [String: Any] {
+//
+//                                let name = dictionary["firstName"] as! String
+//                                let surname = dictionary["lastName"] as! String
+//
+//                                rate.user_name = name + "," + surname
+//
+//                                print(rate.user_name)
+//
+//                            }
+//
+//                        })
+//
+//                        print(self.depRate)
+//                    }
+//                }
+                
                 self.tableView.reloadData()
                 
             }
@@ -77,7 +105,7 @@ class ListCommentTableViewController: UITableViewController {
         let indexPath = tableView.indexPathForSelectedRow!
         
         detail.getComment = depRate[indexPath.row].comment
-        detail.getUsername = depRate[indexPath.row].user_id
+        detail.getUsername = depRate[indexPath.row].user_name
         
     }
     
@@ -94,8 +122,23 @@ class ListCommentTableViewController: UITableViewController {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: cellid, for: indexPath) as! RateTableViewCell
         
-        cell.usernameLabel.text = depRate[indexPath.row].user_id
-        cell.commentLabel.text = depRate[indexPath.row].comment
+        ref!.child("users").child(depRate[indexPath.row].user_id!).observeSingleEvent(of: .value) { (snapshot) in
+            if let dictionary = snapshot.value as? [String: Any] {
+                
+                let name = dictionary["firstName"] as! String
+                let surname = dictionary["lastName"] as! String
+                
+                self.depRate[indexPath.row].user_name = name + ", " + surname
+            }
+            
+            cell.usernameLabel.text = self.depRate[indexPath.row].user_name
+            cell.commentLabel.text = self.depRate[indexPath.row].comment
+        
+        }
+        
+        
+        
+        
         
         return cell
         
