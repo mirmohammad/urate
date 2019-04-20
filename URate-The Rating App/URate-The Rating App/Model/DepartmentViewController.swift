@@ -28,6 +28,8 @@ class DepartmentViewController: UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tableView.delegate = self
+        
         //set the firebase refrence
         ref = Database.database().reference()
         
@@ -47,12 +49,18 @@ class DepartmentViewController: UITableViewController{
                 self.phoneLabel.text = phone
                 self.descLabel.text = desc
                 
+                self.tableView.reloadData()
+                
                 
             }
             
         })
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
     
 
