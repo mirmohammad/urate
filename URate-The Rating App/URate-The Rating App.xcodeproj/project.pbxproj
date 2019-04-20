@@ -14,6 +14,11 @@
 		08BDEB7E225F872200F84DB0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB7D225F872200F84DB0 /* Assets.xcassets */; };
 		08BDEB81225F872200F84DB0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB7F225F872200F84DB0 /* LaunchScreen.storyboard */; };
 		08BDEB89225F878E00F84DB0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 08BDEB88225F878D00F84DB0 /* GoogleService-Info.plist */; };
+		1CCCEA7C226AB27E00570D2C /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCEA7B226AB27E00570D2C /* Rate.swift */; };
+		1CCCEA7E226AB2A800570D2C /* RateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCEA7D226AB2A800570D2C /* RateTableViewCell.swift */; };
+		1CCCEA80226AB5DF00570D2C /* DetailCommentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCEA7F226AB5DF00570D2C /* DetailCommentViewController.swift */; };
+		1CCCEA82226AB6A700570D2C /* ListCommentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCEA81226AB6A700570D2C /* ListCommentTableViewController.swift */; };
+		1CCCEA84226AB96F00570D2C /* DepartmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CCCEA83226AB96F00570D2C /* DepartmentViewController.swift */; };
 		BB391B6A0D6D2800F1A53BF6 /* Pods_URate_The_Rating_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +32,11 @@
 		08BDEB80225F872200F84DB0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		08BDEB82225F872200F84DB0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		08BDEB88225F878D00F84DB0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CCCEA7B226AB27E00570D2C /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		1CCCEA7D226AB2A800570D2C /* RateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateTableViewCell.swift; path = "URate-The Rating App/Model/RateTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		1CCCEA7F226AB5DF00570D2C /* DetailCommentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DetailCommentViewController.swift; path = "URate-The Rating App/Model/DetailCommentViewController.swift"; sourceTree = SOURCE_ROOT; };
+		1CCCEA81226AB6A700570D2C /* ListCommentTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ListCommentTableViewController.swift; path = "URate-The Rating App/Model/ListCommentTableViewController.swift"; sourceTree = SOURCE_ROOT; };
+		1CCCEA83226AB96F00570D2C /* DepartmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DepartmentViewController.swift; path = "URate-The Rating App/Model/DepartmentViewController.swift"; sourceTree = SOURCE_ROOT; };
 		20C4782F08AD9A1E7D93B09D /* Pods-URate-The Rating App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.release.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.release.xcconfig"; sourceTree = "<group>"; };
 		90E09130FF12AF8BABBB4D91 /* Pods-URate-The Rating App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.debug.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.debug.xcconfig"; sourceTree = "<group>"; };
 		DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URate_The_Rating_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,6 +58,7 @@
 			isa = PBXGroup;
 			children = (
 				08420C892260481C00A14FC8 /* Department.swift */,
+				1CCCEA7B226AB27E00570D2C /* Rate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -55,6 +66,9 @@
 		08714B6F225F89D700C88570 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				1CCCEA7F226AB5DF00570D2C /* DetailCommentViewController.swift */,
+				1CCCEA81226AB6A700570D2C /* ListCommentTableViewController.swift */,
+				1CCCEA83226AB96F00570D2C /* DepartmentViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -62,6 +76,7 @@
 		08714B70225F89E400C88570 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1CCCEA7D226AB2A800570D2C /* RateTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -246,8 +261,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
+				1CCCEA7C226AB27E00570D2C /* Rate.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
+				1CCCEA80226AB5DF00570D2C /* DetailCommentViewController.swift in Sources */,
+				1CCCEA84226AB96F00570D2C /* DepartmentViewController.swift in Sources */,
+				1CCCEA7E226AB2A800570D2C /* RateTableViewCell.swift in Sources */,
 				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
+				1CCCEA82226AB6A700570D2C /* ListCommentTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
