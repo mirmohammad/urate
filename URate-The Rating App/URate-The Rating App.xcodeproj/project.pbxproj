@@ -17,6 +17,7 @@
 		08DAB8D22262E9E100642A8D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D12262E9E100642A8D /* LoginViewController.swift */; };
 		08DAB8D42262EB6000642A8D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D32262EB6000642A8D /* SignUpViewController.swift */; };
 		08DAB8D62262EB7B00642A8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D52262EB7B00642A8D /* User.swift */; };
+		2EA97A4A226D1AB5004DF4B6 /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */; };
 		BB391B6A0D6D2800F1A53BF6 /* Pods_URate_The_Rating_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +35,7 @@
 		08DAB8D32262EB6000642A8D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		08DAB8D52262EB7B00642A8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		20C4782F08AD9A1E7D93B09D /* Pods-URate-The Rating App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.release.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.release.xcconfig"; sourceTree = "<group>"; };
+		2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewController.swift; sourceTree = "<group>"; };
 		90E09130FF12AF8BABBB4D91 /* Pods-URate-The Rating App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.debug.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.debug.xcconfig"; sourceTree = "<group>"; };
 		DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URate_The_Rating_App.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -62,6 +64,7 @@
 		08714B6F225F89D700C88570 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */,
 				08DAB8D12262E9E100642A8D /* LoginViewController.swift */,
 				08DAB8D32262EB6000642A8D /* SignUpViewController.swift */,
 			);
@@ -256,6 +259,7 @@
 			files = (
 				08DAB8D22262E9E100642A8D /* LoginViewController.swift in Sources */,
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
+				2EA97A4A226D1AB5004DF4B6 /* EditUserProfileViewController.swift in Sources */,
 				08DAB8D62262EB7B00642A8D /* User.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
 				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
