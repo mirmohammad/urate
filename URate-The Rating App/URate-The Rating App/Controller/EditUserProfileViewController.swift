@@ -16,11 +16,15 @@ class EditUserProfileViewController: UIViewController {
     var userComments = [String]()
     //MARK: UI variables
 
+    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
     @IBOutlet weak var editSaveBtn: UIButton!
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     //MARK: Constructor
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,6 +45,7 @@ class EditUserProfileViewController: UIViewController {
     @IBAction func saveEditClicked(_ sender: Any) {
         switch inEditMode{
         case true:
+            updateUser()
             editMode(enabled: false)
         case false:
             editMode(enabled: true)
@@ -77,10 +82,13 @@ extension EditUserProfileViewController{
             let userFirstName = value?["firstName"] as? String ?? "N/A"
             let userLastName = value?["lastName"] as? String ?? "N/A"
             let email = value?["email"] as? String ?? "N/A"
-            //let phone = value?["phone"] as? String ?? "phone"
+            let phone = value?["phone"] as? String ?? "N/A"
             self.nameTextField.text = userFirstName + " " + userLastName
             self.emailTextField.text = email
-            //phoneTextField.text = phone
+            self.phoneTextField.text = phone
+            
+            self.firstNameTextField.text = userFirstName
+            self.lastNameTextField.text = userLastName
             
         }) { (error) in
             print(error.localizedDescription)
@@ -92,12 +100,24 @@ extension EditUserProfileViewController{
         nameTextField.isEnabled = enable
         emailTextField.isEnabled = enable
         phoneTextField.isEnabled = enable
+        firstNameTextField.isEnabled = enable
+        lastNameTextField.isEnabled = enable
+        
         inEditMode = enable
         
         if enable == true{
             editSaveBtn.setTitle("Save", for: .normal)
+            firstNameTextField.isHidden = false
+            lastNameTextField.isHidden = false
+            firstNameLabel.isHidden = false
+            lastNameLabel.isHidden = false
         }else{
             editSaveBtn.setTitle("Edit", for: .normal)
+            firstNameTextField.isHidden = true
+            lastNameTextField.isHidden = true
+            firstNameLabel.isHidden = true
+            lastNameLabel.isHidden = true
+            
         }
         
     }
@@ -127,4 +147,20 @@ extension EditUserProfileViewController{
         
     }
     
+    func updateUser(){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        let usersRef = ref.child("users").child(uid)
+        let userFirstName = firstNameTextField.text
+        let userLastName = lastNameTextField.text
+        let email = self.emailTextField.text
+        let phone = self.phoneTextField.text
+        let values = ["email": email, "firstName": userFirstName, "lastName": userLastName, "phone": phone  ]
+        usersRef.updateChildValues(values){
+            (err, ref) in
+           if err != nil{
+               print(err!)
+                return
+           }
+        }
+    }
 }
