@@ -24,6 +24,7 @@ class DepartmentViewController: UITableViewController{
     @IBOutlet weak var phoneLabel: UILabel!
     @IBOutlet weak var descLabel: UILabel!
     
+    @IBOutlet weak var feedback: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,6 +56,11 @@ class DepartmentViewController: UITableViewController{
             }
             
         })
+        
+        feedback.layer.cornerRadius = 16
+        feedback.backgroundColor = #colorLiteral(red: 1, green: 0.1491314173, blue: 0, alpha: 1)
+        feedback.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        feedback.layer.masksToBounds = true
 
         // Do any additional setup after loading the view.
     }
@@ -62,6 +68,7 @@ class DepartmentViewController: UITableViewController{
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return UITableView.automaticDimension
     }
+
     
 
     /*
