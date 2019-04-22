@@ -14,6 +14,7 @@ class EditUserProfileViewController: UIViewController {
     var ref: DatabaseReference!
     var inEditMode:Bool = false
     var userComments = [String]()
+    var userImageUrl = String()
     //MARK: UI variables
 
     @IBOutlet weak var userProfileImageView: UIImageView!
@@ -26,11 +27,13 @@ class EditUserProfileViewController: UIViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
+    
     //MARK: Constructor
     override func viewDidLoad() {
         super.viewDidLoad()
         
         ref = Database.database().reference()
+        
         getUserPosts()
         getUserData()
         
@@ -131,11 +134,10 @@ extension EditUserProfileViewController{
     
     func getUserPosts(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        //"JmLVLm37zJSo9HS3tgWP0LdHqSi1"//
-        //print(uid)
+        
         self.ref.child("Rate").observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            //print(snapshot.children.nextObject())
+            
             let values = snapshot.value as? NSDictionary
             
             for rates in values!{
@@ -156,12 +158,15 @@ extension EditUserProfileViewController{
     
     func updateUser(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        writeImageToFirebase()
         let usersRef = ref.child("users").child(uid)
         let userFirstName = firstNameTextField.text
         let userLastName = lastNameTextField.text
         let email = self.emailTextField.text
         let phone = self.phoneTextField.text
-        let values = ["email": email, "firstName": userFirstName, "lastName": userLastName, "phone": phone  ]
+        print("this is the userImageUrl \(userImageUrl)")
+        let values = ["email": email, "firstName": userFirstName, "lastName": userLastName, "phone": phone, "user_image_url": userImageUrl ]
         usersRef.updateChildValues(values){
             (err, ref) in
            if err != nil{
@@ -204,5 +209,37 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         print("canceled picker")
         dismiss(animated: true, completion: nil)
+    }
+    
+    func writeImageToFirebase(){
+        //the following code is to uplad user_image to firebase
+        let imageName = NSUUID().uuidString
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        
+        if let profileImageUrl = self.userProfileImageView.image, let  uploadData = self.userProfileImageView.image!.pngData() {
+            
+            storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
+                
+                if error != nil, metadata != nil {
+                    print(error ?? "")
+                    return
+                }
+                
+                storageRef.downloadURL(completion: { (url, error) in
+                    if error != nil {
+                        print(error!.localizedDescription)
+                        return
+                    }
+                    print("this is the \(url)")
+                    if let profileImageUrl = url?.absoluteString {
+                        
+                        self.userImageUrl = profileImageUrl
+                        //print("this is the userImageUrl \(userImageUrl)")
+                    }
+                })
+            })
+        }
+        
+        
     }
 }
