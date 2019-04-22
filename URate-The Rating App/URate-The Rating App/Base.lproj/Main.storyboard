@@ -466,6 +466,7 @@
                         <outlet property="lastNameTextField" destination="Nbi-cO-bzO" id="7UC-66-8a9"/>
                         <outlet property="nameTextField" destination="PKe-B0-i2s" id="D0j-BM-usH"/>
                         <outlet property="phoneTextField" destination="7Mf-Ou-alL" id="CqQ-nI-0OB"/>
+                        <outlet property="userProfileImageView" destination="3lp-Sk-L6Q" id="PVL-g5-5u2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EO6-xu-5kX" userLabel="First Responder" sceneMemberID="firstResponder"/>

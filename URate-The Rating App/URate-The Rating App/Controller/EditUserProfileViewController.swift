@@ -16,6 +16,7 @@ class EditUserProfileViewController: UIViewController {
     var userComments = [String]()
     //MARK: UI variables
 
+    @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var commentsTableView: UITableView!
@@ -37,7 +38,12 @@ class EditUserProfileViewController: UIViewController {
         
         commentsTableView.delegate = self as? UITableViewDelegate
         commentsTableView.dataSource = self //as? UITableViewDataSource
+        
+        //add action gesture to the imageView
+        userProfileImageView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleSelectProfileImageView)))
+        
     }
+    
     
     
     //MARK: action 
@@ -102,7 +108,7 @@ extension EditUserProfileViewController{
         phoneTextField.isEnabled = enable
         firstNameTextField.isEnabled = enable
         lastNameTextField.isEnabled = enable
-        
+        userProfileImageView.isUserInteractionEnabled = enable
         inEditMode = enable
         
         if enable == true{
@@ -111,13 +117,14 @@ extension EditUserProfileViewController{
             lastNameTextField.isHidden = false
             firstNameLabel.isHidden = false
             lastNameLabel.isHidden = false
+            
         }else{
             editSaveBtn.setTitle("Edit", for: .normal)
             firstNameTextField.isHidden = true
             lastNameTextField.isHidden = true
             firstNameLabel.isHidden = true
             lastNameLabel.isHidden = true
-            
+        
         }
         
     }
@@ -162,5 +169,40 @@ extension EditUserProfileViewController{
                 return
            }
         }
+    }
+    
+    
+}
+
+//MARK: image handler
+extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
+    @objc func handleSelectProfileImageView(){
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.allowsEditing = true
+        present(picker,animated: true, completion: nil)
+    }
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        var selectedImageFromPicker = UIImage()
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
+             print(editedImage.size)
+            selectedImageFromPicker = editedImage
+        }else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+                print(originalImage.size)
+            selectedImageFromPicker = originalImage
+        }
+        
+        if let selectedImage = selectedImageFromPicker as? UIImage{
+            userProfileImageView.image = selectedImage
+        }
+        
+         dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        print("canceled picker")
+        dismiss(animated: true, completion: nil)
     }
 }
