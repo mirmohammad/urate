@@ -14,9 +14,9 @@ class EditUserProfileViewController: UIViewController {
     var ref: DatabaseReference!
     var inEditMode:Bool = false
     var userComments = [String]()
-    var userImageUrl = String()
-    //MARK: UI variables
-
+    //var userImageUrl = String()
+    
+    //MARK: UI layout variables
     @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var firstNameLabel: UILabel!
@@ -54,7 +54,8 @@ class EditUserProfileViewController: UIViewController {
     @IBAction func saveEditClicked(_ sender: Any) {
         switch inEditMode{
         case true:
-            updateUser()
+            //updateUser()
+            writeImageToFirebase()
             editMode(enabled: false)
         case false:
             editMode(enabled: true)
@@ -62,7 +63,9 @@ class EditUserProfileViewController: UIViewController {
     }
 }
 
+//MARK: tableView Extension
 extension EditUserProfileViewController: UITextViewDelegate, UITableViewDataSource{
+   //this extension for tableViewController
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
         return userComments.count
@@ -92,12 +95,14 @@ extension EditUserProfileViewController{
             let userLastName = value?["lastName"] as? String ?? "N/A"
             let email = value?["email"] as? String ?? "N/A"
             let phone = value?["phone"] as? String ?? "N/A"
+            let imageUrl = value?["user_image_url"] as? String ?? "user_icon"
             self.nameTextField.text = userFirstName + " " + userLastName
             self.emailTextField.text = email
             self.phoneTextField.text = phone
-            
             self.firstNameTextField.text = userFirstName
             self.lastNameTextField.text = userLastName
+           
+            if let url = NSURL(string: imageUrl) { if let data = NSData(contentsOf: url as URL) { self.userProfileImageView.image = UIImage(data: data as Data) } }
             
         }) { (error) in
             print(error.localizedDescription)
@@ -156,17 +161,17 @@ extension EditUserProfileViewController{
         
     }
     
-    func updateUser(){
+    func updateUser(imgUrl: String){
         guard let uid = Auth.auth().currentUser?.uid else { return }
-        
-        writeImageToFirebase()
+        //print("updateUser func")
+        //writeImageToFirebase()
         let usersRef = ref.child("users").child(uid)
         let userFirstName = firstNameTextField.text
         let userLastName = lastNameTextField.text
         let email = self.emailTextField.text
         let phone = self.phoneTextField.text
-        print("this is the userImageUrl \(userImageUrl)")
-        let values = ["email": email, "firstName": userFirstName, "lastName": userLastName, "phone": phone, "user_image_url": userImageUrl ]
+        
+        let values = ["email": email, "firstName": userFirstName, "lastName": userLastName, "phone": phone, "user_image_url": imgUrl]
         usersRef.updateChildValues(values){
             (err, ref) in
            if err != nil{
@@ -182,17 +187,21 @@ extension EditUserProfileViewController{
 //MARK: image handler
 extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate
 {
+    //this extension is to handle user image
+    
     @objc func handleSelectProfileImageView(){
+        //action performed when user tap touch the user image
         let picker = UIImagePickerController()
         picker.delegate = self
-        picker.allowsEditing = true
+        picker.allowsEditing = true // allow user to edit his image before uploading it
         present(picker,animated: true, completion: nil)
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+        // opens the image picker controller to show the image library
         var selectedImageFromPicker = UIImage()
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage{
-             print(editedImage.size)
+             //print(editedImage.size)
             selectedImageFromPicker = editedImage
         }else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
                 print(originalImage.size)
@@ -207,14 +216,18 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        // if user cancels and didn't choose an image from the image library
         print("canceled picker")
         dismiss(animated: true, completion: nil)
     }
     
     func writeImageToFirebase(){
-        //the following code is to uplad user_image to firebase
-        let imageName = NSUUID().uuidString
-        let storageRef = Storage.storage().reference().child("profile_images").child("\(imageName).png")
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        //the following code is to upload user_image to firebase
+        //let imageName = NSUUID().uuidString // give the image file a rundom name
+        
+        //put the image in the data store in the directory profile_images
+        let storageRef = Storage.storage().reference().child("profile_images").child("\(uid).png")
         
         if let profileImageUrl = self.userProfileImageView.image, let  uploadData = self.userProfileImageView.image!.pngData() {
             
@@ -230,16 +243,18 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
                         print(error!.localizedDescription)
                         return
                     }
-                    print("this is the \(url)")
+                    //print("this is the \(url)")
                     if let profileImageUrl = url?.absoluteString {
-                        
-                        self.userImageUrl = profileImageUrl
-                        //print("this is the userImageUrl \(userImageUrl)")
+                        self.updateUser(imgUrl: profileImageUrl)
+                        //self.setUserImageUrl(url: profileImageUrl)
+                        //print("this is the userImageUrl \(self.userImageUrl)")
                     }
                 })
             })
         }
-        
-        
-    }
-}
+    }//end of writeImageToFirebase
+//    func setUserImageUrl(url: String){
+//        userImageUrl = url
+//        print("setUserImageUrl \(url)")
+//    }//end of setUserImageUrl
+}//end of extension
