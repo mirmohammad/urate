@@ -17,6 +17,12 @@
 		08DAB8D22262E9E100642A8D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D12262E9E100642A8D /* LoginViewController.swift */; };
 		08DAB8D42262EB6000642A8D /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D32262EB6000642A8D /* SignUpViewController.swift */; };
 		08DAB8D62262EB7B00642A8D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08DAB8D52262EB7B00642A8D /* User.swift */; };
+		1C5BD14D22749762008D773B /* DeparmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD14C22749762008D773B /* DeparmentViewController.swift */; };
+		1C5BD14F22749A33008D773B /* RateTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD14E22749A33008D773B /* RateTableViewCell.swift */; };
+		1C5BD15122749C66008D773B /* ListCommentTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD15022749C66008D773B /* ListCommentTableController.swift */; };
+		1C5BD1532274EA62008D773B /* Rate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD1522274EA62008D773B /* Rate.swift */; };
+		1C5BD1552274EFF1008D773B /* DetailCommentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD1542274EFF1008D773B /* DetailCommentController.swift */; };
+		1C5BD1572275066A008D773B /* CreateRateTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C5BD1562275066A008D773B /* CreateRateTableController.swift */; };
 		2EA97A4A226D1AB5004DF4B6 /* EditUserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */; };
 		BB391B6A0D6D2800F1A53BF6 /* Pods_URate_The_Rating_App.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFBE20B9FFD1A9096F588900 /* Pods_URate_The_Rating_App.framework */; };
 /* End PBXBuildFile section */
@@ -34,6 +40,12 @@
 		08DAB8D12262E9E100642A8D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		08DAB8D32262EB6000642A8D /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		08DAB8D52262EB7B00642A8D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		1C5BD14C22749762008D773B /* DeparmentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeparmentViewController.swift; sourceTree = "<group>"; };
+		1C5BD14E22749A33008D773B /* RateTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RateTableViewCell.swift; path = "URate-The Rating App/Controller/RateTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		1C5BD15022749C66008D773B /* ListCommentTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListCommentTableController.swift; sourceTree = "<group>"; };
+		1C5BD1522274EA62008D773B /* Rate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rate.swift; sourceTree = "<group>"; };
+		1C5BD1542274EFF1008D773B /* DetailCommentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCommentController.swift; sourceTree = "<group>"; };
+		1C5BD1562275066A008D773B /* CreateRateTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateRateTableController.swift; sourceTree = "<group>"; };
 		20C4782F08AD9A1E7D93B09D /* Pods-URate-The Rating App.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.release.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.release.xcconfig"; sourceTree = "<group>"; };
 		2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditUserProfileViewController.swift; sourceTree = "<group>"; };
 		90E09130FF12AF8BABBB4D91 /* Pods-URate-The Rating App.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-URate-The Rating App.debug.xcconfig"; path = "Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App.debug.xcconfig"; sourceTree = "<group>"; };
@@ -57,6 +69,7 @@
 			children = (
 				08420C892260481C00A14FC8 /* Department.swift */,
 				08DAB8D52262EB7B00642A8D /* User.swift */,
+				1C5BD1522274EA62008D773B /* Rate.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -67,6 +80,10 @@
 				2EA97A49226D1AB5004DF4B6 /* EditUserProfileViewController.swift */,
 				08DAB8D12262E9E100642A8D /* LoginViewController.swift */,
 				08DAB8D32262EB6000642A8D /* SignUpViewController.swift */,
+				1C5BD14C22749762008D773B /* DeparmentViewController.swift */,
+				1C5BD15022749C66008D773B /* ListCommentTableController.swift */,
+				1C5BD1542274EFF1008D773B /* DetailCommentController.swift */,
+				1C5BD1562275066A008D773B /* CreateRateTableController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -74,6 +91,7 @@
 		08714B70225F89E400C88570 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				1C5BD14E22749A33008D773B /* RateTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -231,8 +249,10 @@
 			);
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-URate-The Rating App/Pods-URate-The Rating App-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Cosmos/Cosmos.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/TinyConstraints/TinyConstraints.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -240,8 +260,10 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cosmos.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TinyConstraints.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -258,12 +280,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				08DAB8D22262E9E100642A8D /* LoginViewController.swift in Sources */,
+				1C5BD1572275066A008D773B /* CreateRateTableController.swift in Sources */,
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
+				1C5BD15122749C66008D773B /* ListCommentTableController.swift in Sources */,
+				1C5BD14F22749A33008D773B /* RateTableViewCell.swift in Sources */,
 				2EA97A4A226D1AB5004DF4B6 /* EditUserProfileViewController.swift in Sources */,
 				08DAB8D62262EB7B00642A8D /* User.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
 				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
+				1C5BD1532274EA62008D773B /* Rate.swift in Sources */,
 				08DAB8D42262EB6000642A8D /* SignUpViewController.swift in Sources */,
+				1C5BD1552274EFF1008D773B /* DetailCommentController.swift in Sources */,
+				1C5BD14D22749762008D773B /* DeparmentViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

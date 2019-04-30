@@ -11,4 +11,8 @@ target 'URate-The Rating App' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
 
+  
+  pod 'Cosmos'
+  pod 'TinyConstraints'
+
 end
