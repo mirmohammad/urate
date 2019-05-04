@@ -38,6 +38,22 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.dataSource = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let controller = segue.destination as! DeparmentViewController
+        
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("No item selected")
+        }
+        
+        controller.getDeparment = depArray[indexPath.row]
+        //print(controller.getDeparmentID)
+        
+    }
+    
+    
+    
+    
     func getDepartments(){
     
         //set the firebase refrence

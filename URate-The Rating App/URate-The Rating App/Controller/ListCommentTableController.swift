@@ -23,6 +23,8 @@ class ListCommentTableController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        print(getDeparmentID!)
+        
         ref = Database.database().reference()
         
         fetchRates()
@@ -87,35 +89,61 @@ extension ListCommentTableController {
     
     func fetchRates () {
         
-        let databaseLoader = DispatchQueue.global(qos: .background)
-        let loadingGroup = DispatchGroup()
-        
-        loadingGroup.enter()
-        databaseLoader.async {
+        ref!.child("Rate").observeSingleEvent(of: .value, with: { (snapshot) in
             
-            self.ref!.child("Rate").observeSingleEvent(of: .value, with: { (snapshot) in
-                guard let dict = snapshot.value as? [String:[String: Any]] else {
-                    fatalError("Bye!")
-                }
-                for (_, rate) in dict {
+            if let dictionary = snapshot.value as? [String:[String: Any]] {
+                for (_,rate) in dictionary{
                     
                     let newRate = Rate(userID: rate["user_id"] as! String, depID: rate["dep_id"] as! String, comment: rate["comment"] as! String, rate: rate["rate"] as! Int, userName: "Empty")
-                    
                     self.listRates.append(newRate)
                 }
-                loadingGroup.leave()
-            }, withCancel: nil)
-        }
-        
-        loadingGroup.notify(queue: .main) {
-            databaseLoader.async {
+                
                 for rate in self.listRates {
                     if rate.dep_id == self.getDeparmentID{
                         self.depRates.append(rate)
                     }
                 }
+                
+                self.tableView.reloadData()
+                
             }
-        }
+            
+        }, withCancel: nil)
+        
+//        let databaseLoader = DispatchQueue.global(qos: .background)
+//        let loadingGroup = DispatchGroup()
+//
+//        loadingGroup.enter()
+//        databaseLoader.async {
+//
+//            self.ref!.child("Rate").observeSingleEvent(of: .value, with: { (snapshot) in
+//
+//                print(snapshot)
+//                guard let dict = snapshot.value as? [String:[String: Any]] else {
+//                    fatalError("Bye!")
+//                }
+//                for (_, rate) in dict {
+//
+//                    let newRate = Rate(userID: rate["user_id"] as! String, depID: rate["dep_id"] as! String, comment: rate["comment"] as! String, rate: rate["rate"] as! Int, userName: "Empty")
+//
+//                    print(newRate)
+//                    self.listRates.append(newRate)
+//                }
+//                loadingGroup.leave()
+//            }, withCancel: nil)
+//
+//        }
+//
+//
+//        loadingGroup.notify(queue: .main) {
+//            databaseLoader.async {
+//                for rate in self.listRates {
+//                    if rate.dep_id == self.getDeparmentID{
+//                        self.depRates.append(rate)
+//                    }
+//                }
+//            }
+//        }
     }
     
 }
