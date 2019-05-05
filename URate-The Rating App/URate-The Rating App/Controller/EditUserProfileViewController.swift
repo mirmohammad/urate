@@ -231,6 +231,7 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
         dismiss(animated: true, completion: nil)
     }
     
+    
     func writeImageToFirebase(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         //the following code is to upload user_image to firebase
@@ -238,7 +239,7 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
         
         //put the image in the data store in the directory profile_images
         let storageRef = Storage.storage().reference().child("profile_images").child("\(uid).png")
-        
+
         if let profileImageUrl = self.userProfileImageView.image, let  uploadData = self.userProfileImageView.image!.jpegData(compressionQuality: 0.8) {
             
             storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
