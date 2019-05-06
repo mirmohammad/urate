@@ -15,17 +15,17 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginViewController" customModule="URate_The_Rating_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="TBx-8P-EOa">
-                                <rect key="frame" x="157" y="60" width="100" height="100"/>
+                                <rect key="frame" x="157" y="104" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="TBx-8P-EOa" secondAttribute="height" multiplier="1:1" id="Bgt-6I-jZk"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="3GN-0t-nyt">
-                                <rect key="frame" x="50" y="200" width="314" height="190"/>
+                                <rect key="frame" x="50" y="244" width="314" height="190"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50i-EZ-x8g">
                                         <rect key="frame" x="0.0" y="0.0" width="314" height="40"/>
@@ -59,7 +59,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AzI-dh-MLX">
-                                <rect key="frame" x="100" y="425" width="214" height="50"/>
+                                <rect key="frame" x="100" y="469" width="214" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="0vu-zm-dMC"/>
                                 </constraints>
@@ -69,11 +69,10 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S1z-ZF-ZeX"/>
-                                    <segue destination="YFt-ag-TxA" kind="showDetail" identifier="loginLanding" id="kd8-xa-CvQ"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="line" translatesAutoresizingMaskIntoConstraints="NO" id="ACE-5P-nJa">
-                                <rect key="frame" x="0.0" y="495" width="414" height="25"/>
+                                <rect key="frame" x="0.0" y="539" width="414" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="1tB-1E-HdK"/>
                                     <constraint firstAttribute="width" constant="414" id="UTQ-U0-PQ8"/>
@@ -81,7 +80,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wL0-cq-Pk5">
-                                <rect key="frame" x="0.0" y="570" width="414" height="50"/>
+                                <rect key="frame" x="0.0" y="614" width="414" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="miZ-KA-VpJ"/>
                                 </constraints>
@@ -94,7 +93,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not have account?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5d-k2-nRM">
-                                <rect key="frame" x="108" y="550" width="198" height="20"/>
+                                <rect key="frame" x="108" y="594" width="198" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Bwi-Nn-Tr0"/>
                                 </constraints>
@@ -131,6 +130,7 @@
                     <connections>
                         <outlet property="email" destination="bz5-HK-QnS" id="Cuh-LZ-jZe"/>
                         <outlet property="password" destination="gJm-Rn-Q4M" id="5FI-sv-hFG"/>
+                        <segue destination="YFt-ag-TxA" kind="showDetail" identifier="loginLanding" id="eUp-uo-gKU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -142,17 +142,17 @@
             <objects>
                 <viewController id="dZ7-cO-j6N" customClass="SignUpViewController" customModule="URate_The_Rating_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Li-t2-PHa">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="Kru-72-KpG">
-                                <rect key="frame" x="157" y="60" width="100" height="100"/>
+                                <rect key="frame" x="157" y="104" width="100" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="Kru-72-KpG" secondAttribute="height" multiplier="1:1" id="uEU-Ge-1nK"/>
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="GJI-Mu-3xi">
-                                <rect key="frame" x="16" y="190" width="382" height="475"/>
+                                <rect key="frame" x="16" y="234" width="382" height="475"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Om-HS-ASU">
                                         <rect key="frame" x="0.0" y="0.0" width="382" height="55"/>
@@ -229,14 +229,13 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgt-ws-m8g">
-                                <rect key="frame" x="0.0" y="715" width="414" height="63"/>
+                                <rect key="frame" x="0.0" y="759" width="414" height="53"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <state key="normal" title="DONE">
                                     <color key="titleColor" red="0.019607843137254902" green="0.17254901960784313" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="signUp:" destination="dZ7-cO-j6N" eventType="touchUpInside" id="mHq-XE-YPJ"/>
-                                    <segue destination="YFt-ag-TxA" kind="showDetail" identifier="landingView" id="5Vh-mv-cYe"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -260,6 +259,7 @@
                         <outlet property="firstName" destination="cGd-3h-V0x" id="fmV-kE-nRB"/>
                         <outlet property="lastName" destination="tN2-C0-xzy" id="6d0-0z-l0B"/>
                         <outlet property="password" destination="Plg-ww-D7S" id="1PD-mq-5PQ"/>
+                        <segue destination="YFt-ag-TxA" kind="showDetail" identifier="landingView" id="Cwt-9k-AId"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iuh-vJ-pHm" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1404,7 +1404,7 @@
         <image name="user_icon" width="250" height="233"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zva-pT-PQI"/>
-        <segue reference="uGP-aS-XOW"/>
+        <segue reference="Cwt-9k-AId"/>
+        <segue reference="UHs-32-QeP"/>
     </inferredMetricsTieBreakers>
 </document>
