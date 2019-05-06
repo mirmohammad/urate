@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0227641B227E5BBF00DDFE43 /* ContainerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227641A227E5BBF00DDFE43 /* ContainerVC.swift */; };
+		0227641D227E5C1300DDFE43 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227641C227E5C1300DDFE43 /* SideMenuVC.swift */; };
+		0227641F227E5C9200DDFE43 /* ContactTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0227641E227E5C9200DDFE43 /* ContactTableViewCell.swift */; };
+		02276421227E603C00DDFE43 /* Contact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02276420227E603C00DDFE43 /* Contact.swift */; };
+		02276423227E6D3F00DDFE43 /* ContactTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02276422227E6D3F00DDFE43 /* ContactTableViewController.swift */; };
 		08420C8A2260481C00A14FC8 /* Department.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08420C892260481C00A14FC8 /* Department.swift */; };
 		08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDEB76225F871E00F84DB0 /* AppDelegate.swift */; };
 		08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08BDEB78225F871E00F84DB0 /* ViewController.swift */; };
@@ -29,6 +34,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0227641A227E5BBF00DDFE43 /* ContainerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContainerVC.swift; sourceTree = "<group>"; };
+		0227641C227E5C1300DDFE43 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		0227641E227E5C9200DDFE43 /* ContactTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ContactTableViewCell.swift; path = "URate-The Rating App/Controller/ContactTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		02276420227E603C00DDFE43 /* Contact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Contact.swift; sourceTree = "<group>"; };
+		02276422227E6D3F00DDFE43 /* ContactTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTableViewController.swift; sourceTree = "<group>"; };
 		08420C892260481C00A14FC8 /* Department.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Department.swift; sourceTree = "<group>"; };
 		08BDEB73225F871E00F84DB0 /* URate-The Rating App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "URate-The Rating App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		08BDEB76225F871E00F84DB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -72,6 +82,7 @@
 				08420C892260481C00A14FC8 /* Department.swift */,
 				08DAB8D52262EB7B00642A8D /* User.swift */,
 				1C5BD1522274EA62008D773B /* Rate.swift */,
+				02276420227E603C00DDFE43 /* Contact.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -87,6 +98,9 @@
 				1C5BD1542274EFF1008D773B /* DetailCommentController.swift */,
 				1C5BD1562275066A008D773B /* CreateRateTableController.swift */,
 				08E236EE227D6FB300B30CC4 /* LandingViewController.swift */,
+				0227641A227E5BBF00DDFE43 /* ContainerVC.swift */,
+				0227641C227E5C1300DDFE43 /* SideMenuVC.swift */,
+				02276422227E6D3F00DDFE43 /* ContactTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				1C5BD14E22749A33008D773B /* RateTableViewCell.swift */,
+				0227641E227E5C9200DDFE43 /* ContactTableViewCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -282,6 +297,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02276423227E6D3F00DDFE43 /* ContactTableViewController.swift in Sources */,
+				02276421227E603C00DDFE43 /* Contact.swift in Sources */,
 				08DAB8D22262E9E100642A8D /* LoginViewController.swift in Sources */,
 				1C5BD1572275066A008D773B /* CreateRateTableController.swift in Sources */,
 				08BDEB79225F871E00F84DB0 /* ViewController.swift in Sources */,
@@ -291,11 +308,14 @@
 				08DAB8D62262EB7B00642A8D /* User.swift in Sources */,
 				08BDEB77225F871E00F84DB0 /* AppDelegate.swift in Sources */,
 				08E236EF227D6FB300B30CC4 /* LandingViewController.swift in Sources */,
+				0227641B227E5BBF00DDFE43 /* ContainerVC.swift in Sources */,
 				08420C8A2260481C00A14FC8 /* Department.swift in Sources */,
 				1C5BD1532274EA62008D773B /* Rate.swift in Sources */,
 				08DAB8D42262EB6000642A8D /* SignUpViewController.swift in Sources */,
 				1C5BD1552274EFF1008D773B /* DetailCommentController.swift in Sources */,
+				0227641D227E5C1300DDFE43 /* SideMenuVC.swift in Sources */,
 				1C5BD14D22749762008D773B /* DeparmentViewController.swift in Sources */,
+				0227641F227E5C9200DDFE43 /* ContactTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

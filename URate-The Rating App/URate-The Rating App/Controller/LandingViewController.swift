@@ -14,6 +14,11 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    //Show left view Menu
+    @IBAction func MenuTapped(_ sender: UIBarButtonItem) {
+    NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return depArray.count
     }
@@ -25,8 +30,8 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // trigger your segue here
-    }
+        }
+    
     
     override func viewDidAppear(_ animated: Bool) {
          getDepartments()
@@ -36,7 +41,40 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showInviteFriends),
+                                               name: NSNotification.Name("ShowInviteFriends"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showSignIn),
+                                               name: NSNotification.Name("ShowSignIn"),
+                                               object: nil)
     }
+    
+    //Navigate to invitefriends view
+    @objc func showInviteFriends() {
+        performSegue(withIdentifier: "ShowInviteFriends", sender: nil)
+    }
+    
+    @objc func showSignIn() {
+        performSegue(withIdentifier: "ShowSignIn", sender: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "showDepartmentDetails"){
+        let controller = segue.destination as! DeparmentViewController
+
+        guard let indexPath = tableView.indexPathForSelectedRow else {
+            fatalError("No item selected")
+        }
+        controller.getDeparment = depArray[indexPath.row]
+        //print(controller.getDeparmentID)
+        }
+    }
+    
+    
+    
     
     func getDepartments(){
     
