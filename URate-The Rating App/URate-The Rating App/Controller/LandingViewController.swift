@@ -27,13 +27,10 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // trigger your segue here
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-         getDepartments()
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        getDepartments()
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -50,10 +47,6 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         //print(controller.getDeparmentID)
         
     }
-    
-    
-    
-    
     func getDepartments(){
     
         //set the firebase refrence
