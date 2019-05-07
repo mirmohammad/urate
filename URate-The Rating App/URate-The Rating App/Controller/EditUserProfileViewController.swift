@@ -84,25 +84,35 @@ extension EditUserProfileViewController: UITextViewDelegate, UITableViewDataSour
 
 extension EditUserProfileViewController{
     //MARK: functions
+    
     func getUserData(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         //"JmLVLm37zJSo9HS3tgWP0LdHqSi1"//
         print(uid)
         self.ref.child("users").child(uid).observeSingleEvent(of: .value, with: { (snapshot) in
             // Get user value
-            let value = snapshot.value as? NSDictionary
-            let userFirstName = value?["firstName"] as? String ?? "N/A"
-            let userLastName = value?["lastName"] as? String ?? "N/A"
-            let email = value?["email"] as? String ?? "N/A"
-            let phone = value?["phone"] as? String ?? "N/A"
-            let imageUrl = value?["user_image_url"] as? String ?? "user_icon"
-            self.nameTextField.text = userFirstName + " " + userLastName
-            self.emailTextField.text = email
-            self.phoneTextField.text = phone
-            self.firstNameTextField.text = userFirstName
-            self.lastNameTextField.text = userLastName
-           
-            if let url = NSURL(string: imageUrl) { if let data = NSData(contentsOf: url as URL) { self.userProfileImageView.image = UIImage(data: data as Data) } }
+                let value = snapshot.value as? NSDictionary
+                let userFirstName = value?["firstName"] as? String ?? "N/A"
+                let userLastName = value?["lastName"] as? String ?? "N/A"
+                let email = value?["email"] as? String ?? "N/A"
+                let phone = value?["phone"] as? String ?? "N/A"
+                let imageUrl = value?["user_image_url"] as? String ?? "user_icon"
+                self.nameTextField.text = userFirstName + " " + userLastName
+                self.emailTextField.text = email
+                self.phoneTextField.text = phone
+                self.firstNameTextField.text = userFirstName
+                self.lastNameTextField.text = userLastName
+                
+        
+            //var img = UIImage()
+            //loading image from URL
+             DispatchQueue.main.async{
+            if let url = NSURL(string: imageUrl) {
+                if let data = NSData(contentsOf: url as URL) {
+                    self.userProfileImageView.image = UIImage(data: data as Data)! }
+            }
+            }//finished loading image from URL
+            //self.userProfileImageView.image = img
             
         }) { (error) in
             print(error.localizedDescription)
@@ -221,6 +231,7 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
         dismiss(animated: true, completion: nil)
     }
     
+    
     func writeImageToFirebase(){
         guard let uid = Auth.auth().currentUser?.uid else { return }
         //the following code is to upload user_image to firebase
@@ -228,8 +239,8 @@ extension EditUserProfileViewController: UIImagePickerControllerDelegate, UINavi
         
         //put the image in the data store in the directory profile_images
         let storageRef = Storage.storage().reference().child("profile_images").child("\(uid).png")
-        
-        if let profileImageUrl = self.userProfileImageView.image, let  uploadData = self.userProfileImageView.image!.pngData() {
+
+        if let profileImageUrl = self.userProfileImageView.image, let  uploadData = self.userProfileImageView.image!.jpegData(compressionQuality: 0.8) {
             
             storageRef.putData(uploadData, metadata: nil, completion: { (metadata, error) in
                 
