@@ -14,6 +14,10 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBAction func MenuTapped(_ sender: UIBarButtonItem) {
+          NotificationCenter.default.post(name: NSNotification.Name("ToggleSideMenu"), object: nil)
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return depArray.count
     }
@@ -33,10 +37,29 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         getDepartments()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showInviteFriends),
+                                               name: NSNotification.Name("ShowInviteFriends"),
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(showSignIn),
+                                               name: NSNotification.Name("ShowSignIn"),
+                                               object: nil)
+    }
+    
+    //Navigate to invitefriends view
+    @objc func showInviteFriends() {
+        performSegue(withIdentifier: "ShowInviteFriends", sender: nil)
+    }
+    
+    //Navigate to Login view
+    @objc func showSignIn() {
+        performSegue(withIdentifier: "ShowSignIn", sender: nil)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if (segue.identifier == "showDepartmentDetails"){
         let controller = segue.destination as! DeparmentViewController
         
         guard let indexPath = tableView.indexPathForSelectedRow else {
@@ -45,7 +68,7 @@ class LandingViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         controller.getDeparment = depArray[indexPath.row]
         //print(controller.getDeparmentID)
-        
+        }
     }
     func getDepartments(){
     
